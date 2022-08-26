@@ -18,7 +18,6 @@ const Background = ({ keyword, handleLoading }) => {
         })
         .then((response) => {
           setImage(response.data);
-          handleLoading();
         });
     },
     { enabled: keyword != null, staleTime: Infinity }

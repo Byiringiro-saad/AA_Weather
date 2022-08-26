@@ -21,6 +21,7 @@ const Main = ({ user }) => {
       axios
         .get(`/current?lat=${user?.latitude}&lon=${user?.longitude}`, {})
         .then((response) => {
+          setLoading(false);
           setWeatherData(response.data.data[0]);
           return response.data;
         });
