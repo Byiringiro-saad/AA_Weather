@@ -5,11 +5,17 @@ import { useQuery } from "react-query";
 import axios from "../features/weather";
 import Background from "../components/background";
 import Content from "../components/content";
+import Loader from "../components/loading";
 
 const Main = ({ user }) => {
   const [weatherData, setWeatherData] = useState();
+  const [loading, setLoading] = useState(true);
 
-  const { isLoading } = useQuery(
+  const handleLoading = () => {
+    setLoading(!loading);
+  };
+
+  const data = useQuery(
     "weather",
     () => {
       axios
@@ -24,12 +30,14 @@ const Main = ({ user }) => {
 
   // console.log(weatherData);
 
-  if (isLoading) return <p>Loading...</p>;
-
   return (
     <Container>
+      {loading ? <Loader /> : <></>}
       <Content data={weatherData} />
-      <Background keyword={weatherData?.weather?.description} />
+      <Background
+        keyword={weatherData?.weather?.description}
+        handleLoading={handleLoading}
+      />
     </Container>
   );
 };

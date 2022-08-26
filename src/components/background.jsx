@@ -4,7 +4,7 @@ import { useQuery } from "react-query";
 
 import axios from "../features/image";
 
-const Background = ({ keyword }) => {
+const Background = ({ keyword, handleLoading }) => {
   const [image, setImage] = useState();
 
   const { isLoading } = useQuery(
@@ -18,6 +18,7 @@ const Background = ({ keyword }) => {
         })
         .then((response) => {
           setImage(response.data);
+          handleLoading();
         });
     },
     { enabled: keyword != null, staleTime: Infinity }
