@@ -30,24 +30,26 @@ const Content = ({ data }) => {
         </div>
         {/* <p>You better have an umbrella</p> */}
         <table>
-          <tr>
-            <td>Rain</td>
-            <td>{data?.precip}</td>
-          </tr>
-          <tr>
-            <td>Wind</td>
-            <td>
-              {data?.wind_cdir} {data?.wind_spd} Km/h
-            </td>
-          </tr>
-          <tr>
-            <td>Clouds</td>
-            <td>{data?.clouds}</td>
-          </tr>
-          <tr>
-            <td>Snow</td>
-            <td>{data?.snow}</td>
-          </tr>
+          <tbody>
+            <tr>
+              <td>Rain</td>
+              <td>{data?.precip}</td>
+            </tr>
+            <tr>
+              <td>Wind</td>
+              <td>
+                {data?.wind_cdir} {data?.wind_spd} Km/h
+              </td>
+            </tr>
+            <tr>
+              <td>Clouds</td>
+              <td>{data?.clouds}</td>
+            </tr>
+            <tr>
+              <td>Snow</td>
+              <td>{data?.snow}</td>
+            </tr>
+          </tbody>
         </table>
       </div>
       <div className="footer">
