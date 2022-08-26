@@ -15,7 +15,7 @@ const Main = ({ user }) => {
     setLoading(!loading);
   };
 
-  const data = useQuery(
+  const { isLoading } = useQuery(
     "weather",
     () => {
       axios
@@ -29,7 +29,7 @@ const Main = ({ user }) => {
     { enabled: user != null }
   );
 
-  // console.log(weatherData);
+  console.log(isLoading);
 
   return (
     <Container>
